@@ -14,6 +14,8 @@ import java.util.List;
 public class InventoryManagementSystem {
     protected List<InventoryItem> inventoryItems;
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+    //Load the data from the file
     public InventoryManagementSystem() {
         inventoryItems = InventoryPersistence.loadInventoryFromFile();
     }
@@ -22,6 +24,7 @@ public class InventoryManagementSystem {
         return inventoryItems;
     }
 
+    //Adding item to the inventory
     public void addItem() throws IOException {
         System.out.println("Enter item ID:");
         String itemID = bufferedReader.readLine();
@@ -58,14 +61,14 @@ public class InventoryManagementSystem {
 
         System.out.println("You add the item successfully");
     }
-
+    //Delete item by ID
     public void deleteItemById() throws IOException {
         System.out.println("Enter the Id of the item you want to delete: ");
         String itemId=bufferedReader.readLine();
         inventoryItems.removeIf(item->item.getIdItem().equals(itemId));
     }
 
-
+    //Display the item of the list
     public void displayListOfItems(){
         System.out.println("-".repeat(15)+" Inventory List "+"-".repeat(15));
         for(InventoryItem item:inventoryItems){

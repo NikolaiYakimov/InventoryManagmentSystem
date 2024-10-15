@@ -7,6 +7,7 @@ public class Payment {
         this.amount=amount;
     }
 
+    //Check if the amount is enough
     public boolean processOrderPayment(double orderPrice){
 
         if(amount>=orderPrice){
